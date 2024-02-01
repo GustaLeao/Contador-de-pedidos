@@ -48,7 +48,7 @@ fieldset {
 }
 
 #copy-text {
-  margin-top: 20px;
+  margin: 20px auto 0;
   font-size: 1.6rem;
   text-align: left;
 }

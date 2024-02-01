@@ -1,6 +1,12 @@
 //variáveis que peguem o id de spans ou elementos 'p' para ser usado depois para alterar o textContent com os números de cada pedido
 const minusButton = document.getElementsByClassName("minus-button");
 const plusButton = document.getElementsByClassName("plus-button");
+const minusButtonCategory = document.getElementsByClassName(
+  "minus-button-category"
+);
+const plusButtonCategory = document.getElementsByClassName(
+  "plus-button-category"
+);
 const requests = [
   {
     name: "macarrão 500g",
@@ -38,6 +44,9 @@ const requests = [
     name: "lasanha de carne 1kg",
     value: document.getElementById("l2-1000"),
   },
+];
+
+const requestCategory = [
   {
     name: "ifood",
     value: document.getElementById("ifood"),
@@ -51,6 +60,7 @@ const requests = [
     value: document.getElementById("own-delivery"),
   },
 ];
+
 const copyText = document.getElementById("copy-text");
 
 const totalRequests = () => {
@@ -86,9 +96,9 @@ var updateTotalAndCopyText = () => {
   );
 
   copyText.innerHTML = `O número total de pedidos é de ${totalRequests()}. <br>
-  Ifood teve ${requests[9].value.innerHTML} pedidos, <br>
-  Presencial teve ${requests[10].value.innerHTML} pedidos <br>
-  Própria teve ${requests[11].value.innerHTML} pedidos <br>
+  Ifood teve ${requestCategory[0].value.innerHTML} pedidos, <br>
+  Presencial teve ${requestCategory[1].value.innerHTML} pedidos <br>
+  Própria teve ${requestCategory[2].value.innerHTML} pedidos <br>
   A maior quantidade de pedidos foi de ${highestRequest.name}
   `;
 };
@@ -104,6 +114,19 @@ for (let i = 0; i < minusButton.length; i++) {
 for (let i = 0; i < plusButton.length; i++) {
   plusButton[i].addEventListener("click", () => {
     addCounter(requests[i]);
+    updateTotalAndCopyText();
+  });
+}
+for (let i = 0; i < minusButtonCategory.length; i++) {
+  minusButtonCategory[i].addEventListener("click", () => {
+    subtractCounter(requestCategory[i]);
+    updateTotalAndCopyText();
+  });
+}
+
+for (let i = 0; i < plusButtonCategory.length; i++) {
+  plusButtonCategory[i].addEventListener("click", () => {
+    addCounter(requestCategory[i]);
     updateTotalAndCopyText();
   });
 }
