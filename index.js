@@ -98,7 +98,7 @@ var updateTotalAndCopyText = () => {
   copyText.innerHTML = `O número total de pedidos é de ${totalRequests()}. <br>
   Ifood teve ${requestCategory[0].value.innerHTML} pedidos, <br>
   Presencial teve ${requestCategory[1].value.innerHTML} pedidos <br>
-  Própria teve ${requestCategory[2].value.innerHTML} pedidos <br>
+  Própria teve ${requestCategory[2].value.innerHTML} pedidos <br><br>
   A maior quantidade de pedidos foi de ${highestRequest.name}
   `;
 };
