@@ -1,0 +1,122 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contador de pedidos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="main-container">
+      <h1 id="main-title">Ta Massa Pedidos</h1>
+      <span class="container-title">Pratos</span>
+      <div id="requests-container">
+        <fieldset class="type-container macarrao-p">
+          <legend class="field-title">Macarrão 500g</legend>
+          <button id="minus-500-pasta" class="minus-button">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+          <span id="500-m" class="qty-requests">0</span>
+          <button class="plus-button"><ion-icon name="add"></ion-icon></button>
+        </fieldset>
+        <fieldset class="type-container macarrao-m">
+          <legend class="field-title">Macarrao 750g</legend>
+          <button class="minus-button">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+          <span id="750-m" class="qty-requests">0</span>
+          <button class="plus-button"><ion-icon name="add"></ion-icon></button>
+        </fieldset>
+        <fieldset class="type-container macarrao-g">
+          <legend class="field-title">Macarrão 1kg</legend>
+          <button class="minus-button">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+          <span id="1000-m" class="qty-requests">0</span>
+          <button class="plus-button"><ion-icon name="add"></ion-icon></button>
+        </fieldset>
+        <fieldset class="type-container lasanha-frango-p">
+          <legend class="field-title">Lasanha frango 500g</legend>
+          <button class="minus-button">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+          <span id="l1-500" class="qty-requests">0</span>
+          <button class="plus-button"><ion-icon name="add"></ion-icon></button>
+        </fieldset>
+        <fieldset class="type-container lasanha-frango-m">
+          <legend class="field-title">Lasanha frango 750g</legend>
+          <button class="minus-button">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+          <span id="l1-750" class="qty-requests">0</span>
+          <button class="plus-button"><ion-icon name="add"></ion-icon></button>
+        </fieldset>
+        <fieldset class="type-container lasanha-frango-g">
+          <legend class="field-title">Lasanha frango 1kg</legend>
+          <button class="minus-button">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+          <span id="l1-1000" class="qty-requests">0</span>
+          <button class="plus-button"><ion-icon name="add"></ion-icon></button>
+        </fieldset>
+        <fieldset class="type-container lasanha-carne-p">
+          <legend class="field-title">Lasanha carne 500g</legend>
+          <button class="minus-button">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+          <span id="l2-500" class="qty-requests">0</span>
+          <button class="plus-button"><ion-icon name="add"></ion-icon></button>
+        </fieldset>
+        <fieldset class="type-container lasanha-carne-m">
+          <legend class="field-title">Lasanha carne 750g</legend>
+          <button class="minus-button">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+          <span id="l2-750" class="qty-requests">0</span>
+          <button class="plus-button"><ion-icon name="add"></ion-icon></button>
+        </fieldset>
+        <fieldset class="type-container lasanha-carne-g">
+          <legend class="field-title">Lasanha carne 1kg</legend>
+          <button class="minus-button">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+          <span id="l2-1000" class="qty-requests">0</span>
+          <button class="plus-button"><ion-icon name="add"></ion-icon></button>
+        </fieldset>
+      </div>
+      <span class="container-title">Categorias</span>
+      <div id="requests-category-container">
+        <fieldset class="category-container">
+          <legend class="field-title">Ifood</legend>
+          <button class="minus-button">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+          <span id="ifood" class="qty-requests">0</span>
+          <button class="plus-button"><ion-icon name="add"></ion-icon></button>
+        </fieldset>
+        <fieldset class="category-container">
+          <legend class="field-title">Presencial</legend>
+          <button class="minus-button">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+          <span id="in-person" class="qty-requests">0</span>
+          <button class="plus-button"><ion-icon name="add"></ion-icon></button>
+        </fieldset>
+        <fieldset class="category-container">
+          <legend class="field-title">Própria</legend>
+          <button class="minus-button">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+          <span id="own-delivery" class="qty-requests">0</span>
+          <button class="plus-button"><ion-icon name="add"></ion-icon></button>
+        </fieldset>
+      </div>
+      <div id="copy-text-container">
+        <p id="copy-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elit.
+        </p>
+      </div>
+    </main>
+    <script src="index.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  </body>
+</html>

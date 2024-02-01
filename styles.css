@@ -1,0 +1,62 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 65.5%;
+}
+
+main {
+  margin-top: 20px;
+  text-align: center;
+  padding: 0 25%;
+}
+
+#main-title {
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+
+.container-title {
+  font-size: 3rem;
+}
+
+#requests-container,
+#requests-category-container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 2rem;
+}
+
+.field-title {
+  font-size: 2rem;
+  margin-bottom: 0.7rem;
+}
+
+.qty-requests {
+  font-size: 1.5rem;
+  padding: 0 1rem;
+}
+
+#copy-text {
+  margin-top: 20px;
+  font-size: 1.6rem;
+  text-align: left;
+}
+
+@media screen and (max-width: 320px) {
+  #requests-container,
+  #requests-category-container {
+    margin-top: 20px;
+    display: block;
+  }
+}
