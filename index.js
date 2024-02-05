@@ -1,4 +1,6 @@
 //variáveis que peguem o id de spans ou elementos 'p' para ser usado depois para alterar o textContent com os números de cada pedido
+
+//Fazer um var com os números ordenados para adicioanr eventos de maneira correrta
 const minusButton = document.getElementsByClassName("minus-button");
 const plusButton = document.getElementsByClassName("plus-button");
 const minusButtonCategory = document.getElementsByClassName(
@@ -61,6 +63,9 @@ const requestCategory = [
   },
 ];
 
+const requestInput = ["7", "8", "9", "4", "5", "6", "1", "2", "3"];
+const categoryInput = ["-","+","."
+]
 const copyText = document.getElementById("copy-text");
 
 const totalRequests = () => {
@@ -104,12 +109,13 @@ var updateTotalAndCopyText = () => {
 };
 updateTotalAndCopyText();
 
-for (let i = 0; i < minusButton.length; i++) {
-  minusButton[i].addEventListener("click", () => {
-    subtractCounter(requests[i]);
-    updateTotalAndCopyText();
-  });
-}
+  for (let i = 0; i < minusButton.length; i++) {
+    minusButton[i].addEventListener("click", () => {
+      subtractCounter(requests[i]);
+      updateTotalAndCopyText();
+    });
+  }
+
 
 for (let i = 0; i < plusButton.length; i++) {
   plusButton[i].addEventListener("click", () => {
@@ -117,6 +123,26 @@ for (let i = 0; i < plusButton.length; i++) {
     updateTotalAndCopyText();
   });
 }
+
+
+  window.addEventListener('keydown', (event) => {
+     const key = event.key;
+     if (requestInput.includes(key)) {
+       const index = requestInput.indexOf(key);
+       addCounter(requests[index]);
+       updateTotalAndCopyText();
+     }
+  });
+  
+  window.addEventListener('keydown', (event) => {
+     const key = event.key;
+     if (categoryInput.includes(key)) {
+       const index = categoryInput.indexOf(key);
+       addCounter(requestCategory[index]);
+       updateTotalAndCopyText();
+     }
+  });
+
 for (let i = 0; i < minusButtonCategory.length; i++) {
   minusButtonCategory[i].addEventListener("click", () => {
     subtractCounter(requestCategory[i]);
@@ -130,5 +156,3 @@ for (let i = 0; i < plusButtonCategory.length; i++) {
     updateTotalAndCopyText();
   });
 }
-
-//tenho que adicionar um atualizador de página que faça com que o totalRequests apareça atualizado para o usuário
