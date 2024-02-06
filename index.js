@@ -64,7 +64,7 @@ const requestCategory = [
 ];
 
 const requestInput = ["7", "8", "9", "4", "5", "6", "1", "2", "3"];
-const categoryInput = ["-","+","."
+const categoryInput = ["/","*","-"
 ]
 const copyText = document.getElementById("copy-text");
 

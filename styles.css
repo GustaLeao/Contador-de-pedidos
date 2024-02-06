@@ -10,10 +10,18 @@
   font-size: 65.5%;
 }
 
+html{
+  color: white;
+  background-color: #000015;
+}
+
 main {
+
+  position: relative;
   margin-top: 20px;
   text-align: center;
   padding: 0 25%;
+
 }
 
 #main-title {
@@ -30,6 +38,12 @@ main {
   margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap:10px;
+}
+
+hr{
+  opacity: 30%;
+  border: 1px solid ;
 }
 
 fieldset {
@@ -40,11 +54,28 @@ fieldset {
 .field-title {
   font-size: 2rem;
   margin-bottom: 0.7rem;
+  color: #FF8C00;
 }
 
 .qty-requests {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   padding: 0 1rem;
+}
+
+.minus-button,.plus-button,.plus-button-category,.minus-button-category{
+  border: none;
+  padding: 8px;
+  background-color: #000015;
+  font-size:1.8rem;
+}
+
+.minus-button:hover,.plus-button:hover,.plus-button-category:hover,.minus-button-category:hover{
+  cursor:pointer;
+  border: 1px solid #FF8C00;
+}
+
+ion-icon{
+  color: #FF8C00;
 }
 
 #copy-text {
