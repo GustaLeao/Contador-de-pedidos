@@ -10,40 +10,48 @@
   font-size: 65.5%;
 }
 
-html{
+html {
   color: white;
   background-color: #000015;
 }
 
 main {
-
   position: relative;
   margin-top: 20px;
   text-align: center;
-  padding: 0 25%;
-
+  padding: 0 23%;
 }
 
 #main-title {
   font-size: 5rem;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .container-title {
   font-size: 3rem;
+  margin-top: 40px;
 }
 
 #requests-container,
 #requests-category-container {
   margin-top: 20px;
+  margin-bottom: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap:10px;
+  gap: 20px;
 }
 
-hr{
+.counter-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+hr {
   opacity: 30%;
-  border: 1px solid ;
+  border: 1px solid;
+  margin: 2rem 0px;
 }
 
 fieldset {
@@ -54,30 +62,37 @@ fieldset {
 .field-title {
   font-size: 2rem;
   margin-bottom: 0.7rem;
-  color: #FF8C00;
+  color: #ff8c00;
 }
 
 .qty-requests {
   font-size: 1.8rem;
-  padding: 0 1rem;
 }
 
-.minus-button,.plus-button,.plus-button-category,.minus-button-category{
+.minus-button,
+.plus-button,
+.plus-button-category,
+.minus-button-category {
   border: none;
-  padding: 8px;
+  padding: 0px;
   background-color: #000015;
-  font-size:1.8rem;
+  font-size: 1.8rem;
 }
 
-.minus-button:hover,.plus-button:hover,.plus-button-category:hover,.minus-button-category:hover{
-  cursor:pointer;
-  border: 1px solid #FF8C00;
+ion-icon {
+  color: #ff8c00;
 }
 
-ion-icon{
-  color: #FF8C00;
+.minus-button ion-icon:hover,
+.minus-button-category ion-icon:hover {
+  cursor: pointer;
+  color: #ff0000;
 }
-
+.plus-button ion-icon:hover,
+.plus-button-category ion-icon:hover{
+  cursor: pointer;
+  color: #00ff00;
+}
 #copy-text {
   margin: 20px auto 0;
   font-size: 1.6rem;
