@@ -99,6 +99,32 @@ ion-icon {
   text-align: left;
 }
 
+@media screen and (min-width: 1920px){
+  #main-title{
+    font-size: 6rem;
+  }
+  
+  .container-title{
+    font-size: 5rem;
+  }
+  .field-title{
+    font-size:3rem
+  }
+  .qty-requests{
+    font-size:2.5rem;
+  }
+  .plus-button,.minus-button{
+    font-size: 2.4rem;
+  }
+  #copy-text{
+    font-size: 2.4rem;
+  }
+}
+
+@media screen and (max-width: 1366px){
+
+}
+
 @media screen and (max-width: 330px) {
   #requests-container,
   #requests-category-container {
