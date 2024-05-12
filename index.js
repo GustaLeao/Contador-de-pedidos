@@ -63,6 +63,11 @@ const requestCategory = [
   },
 ];
 
+  //history column variables
+const historyBox = document.querySelector('.history_box');
+const historyBoxDate = document.querySelector('.history_box_date')
+const historyBoxText = document.querySelector('.history_box_text')
+const date = new Date();
 const requestInput = ["7", "8", "9", "4", "5", "6", "1", "2", "3"];
 const categoryInput = ["/","*","-"
 ]
@@ -104,7 +109,8 @@ var updateTotalAndCopyText = () => {
   Ifood teve ${requestCategory[0].value.innerHTML} pedidos, <br>
   Presencial teve ${requestCategory[1].value.innerHTML} pedidos <br>
   Própria teve ${requestCategory[2].value.innerHTML} pedidos <br><br>
-  A maior quantidade de pedidos foi de ${highestRequest.name}
+  A maior quantidade de pedidos foi de ${highestRequest.name}<br>
+  Pedidos da data ${date.getDate()}
   `;
 };
 updateTotalAndCopyText();
