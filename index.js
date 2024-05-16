@@ -105,13 +105,13 @@ const qtyPastaRequests = () => {
   return total;
 };
 
-const updateHistoryContainerText = () => {
+const updateHistoryContainerText = (pasta,lasagna) => {
   historyBox.innerHTML= `
     <div class="history_inner_container">
       <h3 class="history_box_date"> ${actualDate}/0${actualMonth+1} </h3>
       <p class="history_box_text">
-        Macarrão: ${qtyPastaRequests()} pedidos<br>
-        Lasanha: ${qtyLasagnaRequests()} pedidos<br>
+        Macarrão: ${pasta} pedidos<br>
+        Lasanha: ${lasagna} pedidos<br>
       </p>
     </div>
       `
@@ -151,7 +151,7 @@ for (let i = 0; i < minusButton.length; i++) {
   minusButton[i].addEventListener("click", () => {
     subtractCounter(requests[i]);
     updateTotalAndCopyText();
-    updateHistoryContainerText();
+    updateHistoryContainerText(qtyPastaRequests(),qtyLasagnaRequests());
   });
 }
 
@@ -159,7 +159,7 @@ for (let i = 0; i < plusButton.length; i++) {
   plusButton[i].addEventListener("click", () => {
     addCounter(requests[i]);
     updateTotalAndCopyText();
-    updateHistoryContainerText();
+    updateHistoryContainerText(qtyPastaRequests(),qtyLasagnaRequests());
   });
 }
 
@@ -200,7 +200,13 @@ window.addEventListener("keydown", (event) => {
 window.addEventListener("keydown", (e) => {
   const key = e.key;
   if (categoryInput.includes(key) || requestInput.includes(key)) {
-    updateHistoryContainerText();
+    updateHistoryContainerText(qtyPastaRequests(),qtyLasagnaRequests());
+    localStorage.setItem('qtyLasagnaRequests',qtyLasagnaRequests());
+    localStorage.setItem('qtyPastaRequests',qtyPastaRequests());
   }
 });
 
+//atualiza o histórico com os dados do localStorage
+window.onload(
+  updateHistoryContainerText(localStorage.getItem('qtyPastaRequests'),localStorage.getItem('qtyLasagnaRequests'))
+)
