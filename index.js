@@ -65,7 +65,7 @@ const requestCategory = [
 ];
 
 //history column variables
-const historyBox = document.querySelector(".history_box");
+const historyBox = document.getElementById("history_box");
 /*
 const historyBoxDate = document.querySelector(".history_box_date");
 const historyBoxText = document.querySelector(".history_box_text");
@@ -105,6 +105,18 @@ const qtyPastaRequests = () => {
   return total;
 };
 
+const updateHistoryContainerText = () => {
+  historyBox.innerHTML= `
+    <div class="history_inner_container">
+      <h3 class="history_box_date"> ${actualDate}/0${actualMonth+1} </h3>
+      <p class="history_box_text">
+        Macarrão: ${qtyPastaRequests()} pedidos<br>
+        Lasanha: ${qtyLasagnaRequests()} pedidos<br>
+      </p>
+    </div>
+      `
+}
+
 var subtractCounter = (requestCounter) => {
   requestCounter.value.innerHTML > 0
     ? requestCounter.value.innerHTML--
@@ -139,6 +151,7 @@ for (let i = 0; i < minusButton.length; i++) {
   minusButton[i].addEventListener("click", () => {
     subtractCounter(requests[i]);
     updateTotalAndCopyText();
+    updateHistoryContainerText();
   });
 }
 
@@ -146,7 +159,7 @@ for (let i = 0; i < plusButton.length; i++) {
   plusButton[i].addEventListener("click", () => {
     addCounter(requests[i]);
     updateTotalAndCopyText();
-
+    updateHistoryContainerText();
   });
 }
 
@@ -161,7 +174,8 @@ for (let i = 0; i < plusButtonCategory.length; i++) {
   plusButtonCategory[i].addEventListener("click", () => {
     addCounter(requestCategory[i]);
     updateTotalAndCopyText();
-  });
+    
+  }); 
 }
 
 // start event listeners below
@@ -186,12 +200,7 @@ window.addEventListener("keydown", (event) => {
 window.addEventListener("keydown", (e) => {
   const key = e.key;
   if (categoryInput.includes(key) || requestInput.includes(key)) {
-    historyBoxDate.innerHTML = `${date.getDate()}/${date.getMonth()}`;
-    historyBoxText.innerHTML = `
-      Macarrão: ${qtyPastaRequests()} pratos<br>
-      Lasanha: ${qtyLasagnaRequests()} pratos<br>
-      Clique para ver mais detalhes
-      `;
+    updateHistoryContainerText();
   }
 });
 
