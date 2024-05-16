@@ -1,6 +1,5 @@
-//variáveis que peguem o id de spans ou elementos 'p' para ser usado depois para alterar o textContent com os números de cada pedido
+const body = document.querySelector("body");
 
-//Fazer um var com os números ordenados para adicioanr eventos de maneira correrta
 const minusButton = document.getElementsByClassName("minus-button");
 const plusButton = document.getElementsByClassName("plus-button");
 const minusButtonCategory = document.getElementsByClassName(
@@ -9,6 +8,8 @@ const minusButtonCategory = document.getElementsByClassName(
 const plusButtonCategory = document.getElementsByClassName(
   "plus-button-category"
 );
+const copyText = document.getElementById("copy-text");
+
 const requests = [
   {
     name: "macarrão 500g",
@@ -63,22 +64,45 @@ const requestCategory = [
   },
 ];
 
-  //history column variables
-const historyBox = document.querySelector('.history_box');
-const historyBoxDate = document.querySelector('.history_box_date')
-const historyBoxText = document.querySelector('.history_box_text')
+//history column variables
+const historyBox = document.querySelector(".history_box");
+/*
+const historyBoxDate = document.querySelector(".history_box_date");
+const historyBoxText = document.querySelector(".history_box_text");
+*/
+// Variável para data
 const date = new Date();
-const requestInput = ["7", "8", "9", "4", "5", "6", "1", "2", "3"];
-const categoryInput = ["/","*","-"
-]
-const copyText = document.getElementById("copy-text");
+let actualDate = date.getDate();
+let actualMonth = date.getMonth();
+let actualYear = date.getFullYear();
 
+//varibales for keyboard events
+const requestInput = ["7", "8", "9", "4", "5", "6", "1", "2", "3"];
+const categoryInput = ["/", "*", "-"];
+
+//start functions below
 const totalRequests = () => {
   let accumulator = 0;
   for (let i = 0; i < 9; i++) {
     accumulator += Number(requests[i].value.innerHTML);
   }
   return accumulator;
+};
+
+const qtyLasagnaRequests = () => {
+  let total = 0;
+  for (let i = 3; i < 9; i++) {
+    total += Number(requests[i].value.innerHTML);
+  }
+  return total;
+};
+
+const qtyPastaRequests = () => {
+  let total = 0;
+  for (let i = 0; i < 3; i++) {
+    total += Number(requests[i].value.innerHTML);
+  }
+  return total;
 };
 
 var subtractCounter = (requestCounter) => {
@@ -92,9 +116,6 @@ var addCounter = (Counter) => {
 };
 
 var updateTotalAndCopyText = () => {
-  const highestRequestValue = [
-    Math.max(...requests.map((request) => parseInt(request.value.innerHTML))),
-  ];
   const highestRequest = requests.reduce(
     (highest, request) => {
       const value = parseInt(request.value.innerHTML);
@@ -110,44 +131,24 @@ var updateTotalAndCopyText = () => {
   Presencial teve ${requestCategory[1].value.innerHTML} pedidos <br>
   Própria teve ${requestCategory[2].value.innerHTML} pedidos <br><br>
   A maior quantidade de pedidos foi de ${highestRequest.name}<br>
-  Pedidos da data ${date.getDate()}
   `;
 };
 updateTotalAndCopyText();
 
-  for (let i = 0; i < minusButton.length; i++) {
-    minusButton[i].addEventListener("click", () => {
-      subtractCounter(requests[i]);
-      updateTotalAndCopyText();
-    });
-  }
-
+for (let i = 0; i < minusButton.length; i++) {
+  minusButton[i].addEventListener("click", () => {
+    subtractCounter(requests[i]);
+    updateTotalAndCopyText();
+  });
+}
 
 for (let i = 0; i < plusButton.length; i++) {
   plusButton[i].addEventListener("click", () => {
     addCounter(requests[i]);
     updateTotalAndCopyText();
+
   });
 }
-
-
-  window.addEventListener('keydown', (event) => {
-     const key = event.key;
-     if (requestInput.includes(key)) {
-       const index = requestInput.indexOf(key);
-       addCounter(requests[index]);
-       updateTotalAndCopyText();
-     }
-  });
-  
-  window.addEventListener('keydown', (event) => {
-     const key = event.key;
-     if (categoryInput.includes(key)) {
-       const index = categoryInput.indexOf(key);
-       addCounter(requestCategory[index]);
-       updateTotalAndCopyText();
-     }
-  });
 
 for (let i = 0; i < minusButtonCategory.length; i++) {
   minusButtonCategory[i].addEventListener("click", () => {
@@ -162,3 +163,35 @@ for (let i = 0; i < plusButtonCategory.length; i++) {
     updateTotalAndCopyText();
   });
 }
+
+// start event listeners below
+window.addEventListener("keydown", (event) => {
+  const key = event.key;
+  if (requestInput.includes(key)) {
+    const index = requestInput.indexOf(key);
+    addCounter(requests[index]);
+    updateTotalAndCopyText();
+  }
+});
+
+window.addEventListener("keydown", (event) => {
+  const key = event.key;
+  if (categoryInput.includes(key)) {
+    const index = categoryInput.indexOf(key);
+    addCounter(requestCategory[index]);
+    updateTotalAndCopyText();
+  }
+});
+
+window.addEventListener("keydown", (e) => {
+  const key = e.key;
+  if (categoryInput.includes(key) || requestInput.includes(key)) {
+    historyBoxDate.innerHTML = `${date.getDate()}/${date.getMonth()}`;
+    historyBoxText.innerHTML = `
+      Macarrão: ${qtyPastaRequests()} pratos<br>
+      Lasanha: ${qtyLasagnaRequests()} pratos<br>
+      Clique para ver mais detalhes
+      `;
+  }
+});
+
