@@ -1,3 +1,5 @@
+import 'https://tomashubelbauer.github.io/github-pages-local-storage/index.js';
+
 const body = document.querySelector("body");
 
 const minusButton = document.getElementsByClassName("minus-button");
@@ -207,6 +209,6 @@ window.addEventListener("keydown", (e) => {
 });
 
 //atualiza o histórico com os dados do localStorage
-window.onload(
+window.addEventListener('load',() =>
   updateHistoryContainerText(localStorage.getItem('qtyPastaRequests'),localStorage.getItem('qtyLasagnaRequests'))
 )
