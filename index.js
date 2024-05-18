@@ -1,7 +1,5 @@
 import 'https://tomashubelbauer.github.io/github-pages-local-storage/index.js';
 
-const body = document.querySelector("body");
-
 const minusButton = document.getElementsByClassName("minus-button");
 const plusButton = document.getElementsByClassName("plus-button");
 const minusButtonCategory = document.getElementsByClassName(
@@ -68,15 +66,11 @@ const requestCategory = [
 
 //history column variables
 const historyBox = document.getElementById("history_box");
-/*
-const historyBoxDate = document.querySelector(".history_box_date");
-const historyBoxText = document.querySelector(".history_box_text");
-*/
+
 // Variável para data
 const date = new Date();
 let actualDate = date.getDate();
 let actualMonth = date.getMonth();
-let actualYear = date.getFullYear();
 
 //varibales for keyboard events
 const requestInput = ["7", "8", "9", "4", "5", "6", "1", "2", "3"];
