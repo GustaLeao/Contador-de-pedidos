@@ -144,6 +144,7 @@ var updateTotalAndCopyText = () => {
   Própria teve ${requestCategory[2].value.innerHTML} pedidos <br><br>
   A maior quantidade de pedidos foi de ${highestRequest.name}<br>
   `;
+  localStorage.setItem(`qtyLasagnaRequest${actualDate}`,qtyLasagnaRequests())
 };
 updateTotalAndCopyText();
 
