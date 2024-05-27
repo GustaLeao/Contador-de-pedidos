@@ -1,4 +1,4 @@
-const body = document.querySelector("body");
+import 'https://tomashubelbauer.github.io/github-pages-local-storage/index.js';
 
 const minusButton = document.getElementsByClassName("minus-button");
 const plusButton = document.getElementsByClassName("plus-button");
@@ -66,15 +66,11 @@ const requestCategory = [
 
 //history column variables
 const historyBox = document.getElementById("history_box");
-/*
-const historyBoxDate = document.querySelector(".history_box_date");
-const historyBoxText = document.querySelector(".history_box_text");
-*/
+
 // Variável para data
 const date = new Date();
 let actualDate = date.getDate();
 let actualMonth = date.getMonth();
-let actualYear = date.getFullYear();
 
 //varibales for keyboard events
 const requestInput = ["7", "8", "9", "4", "5", "6", "1", "2", "3"];
@@ -208,6 +204,6 @@ window.addEventListener("keydown", (e) => {
 });
 
 //atualiza o histórico com os dados do localStorage
-window.onload(
+window.addEventListener('load',() =>
   updateHistoryContainerText(localStorage.getItem('qtyPastaRequests'),localStorage.getItem('qtyLasagnaRequests'))
 )
